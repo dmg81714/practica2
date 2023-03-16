@@ -16,6 +16,26 @@
         #name: "{{ k8s_namespace }}"
         state: present
         api_version: v1
+        
+    - name: 'Crear Volumen Persistente'
+      kubernetes.core.k8s:
+        state: present
+        namespace: "{{ k8s_namespace }}"
+        definition:
+          apiVersion: v1
+          kind: PersistentVolume
+          metadata:
+            name: task-pv-volume
+            labels:
+              type: local
+          spec:
+            storageClassName: manual
+            capacity:
+              storage: 10Gi
+            accessModes:
+              - ReadWriteOnce
+            hostPath:
+              path: "/mnt/data"
 
     # - name: 'Crear Deployments y servicios de la aplicación'
       # kubernetes.core.k8s:
