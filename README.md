@@ -1,5 +1,6 @@
 # practica2
-Repositorio que incluye ejemplos prácticos de distintas tecnologías relacionadas con DevOps
+Repositorio que incluye el código empleado para la resolución del Caso Práctico 2: Automatización de despliegues
+en entornos Cloud
 
 Se encuentran disponibles las siguientes secciones:
 
