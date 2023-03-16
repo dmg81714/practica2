@@ -6,7 +6,7 @@
   - name: 'Login'
     containers.podman.podman_login:
       username: dmartinezgacr1
-      password: 'EJbOosc4WJGZIK2HcmBYCQQRvL24bjcAxL/V7997kG+ACRCbIZO1'
+      password: 'eJbOosc4WJGZIK2HcmBYCQQRvL24bjcAxL/V7997kG+ACRCbIZO1'
       registry: dmartinezgacr1.azurecr.io
       
   - name: 'Build and Push an image'
