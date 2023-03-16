@@ -1,0 +1,26 @@
+- name: 'Deploy container to AZURE VM'
+  hosts: AZURE_VM
+
+  tasks:
+  - name: 'Login'
+    containers.podman.podman_login:
+      username: dmartinezgacr1
+      password: 'eJbOosc4WJGZIK2HcmBYCQQRvL24bjcAxL/V7997kG+ACRCbIZO1'
+      registry: dmartinezgacr1.azurecr.io
+      
+  - name: 'Pull image from AZURE Container Registry'
+    containers.podman.podman_image:
+      name: dmartinezgacr1.azurecr.io/webserver
+      tag: container_from_ansible_1.12
+      state: build
+      
+  - name: 'Create a container'
+    containers.podman.podman_container:
+      name: web
+      image: dmartinezgacr1.azurecr.io/webserver:container_from_ansible_1.12
+      ports:
+        - "8080:443"
+      state: started
+      
+
+  
